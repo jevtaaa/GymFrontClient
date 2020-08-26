@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'front-client';
+  menuOpened = false;
+  title = 'gymClient';
+
+  constructor(
+    public authServ: AuthService
+    ) {}
+
+  toggleSideMenu() {
+    this.menuOpened = !this.menuOpened;
+  }
 }

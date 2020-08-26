@@ -1,0 +1,19 @@
+<div class="spinner-div" *ngIf="session.homeSpinnerFlag">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="!session.homeSpinnerFlag" style="display: flex; flex-direction: column; align-items: center;">
+      <h1 style="margin: auto; max-width: 90%;">
+        Welcome back to our Gym,
+      </h1>
+      <h2 style="margin: auto; max-width: 90%;">
+        {{ authServ.loggedClient.getUsername() }}
+      </h2>
+      <br />
+      <figure class="image">
+        <img
+          src="../../assets/gym.png"
+          style="max-height: 500px; max-width: 500px;"
+          alt="Picture loading..."
+        />
+    </figure>   
+</div>

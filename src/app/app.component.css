@@ -1,0 +1,11 @@
+mat-sidenav button {
+    display: block;
+}
+  
+mat-sidenav {
+    width: 200px;
+}
+  
+.invisibleHeader {
+    z-index: -1 !important;
+}
