@@ -6,6 +6,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ClientComponent } from './client/client.component';
 import { CoachComponent } from './coach/coach.component';
 import { TrainingComponent } from './training/training.component';
+import { HistoryDefaultComponent } from './history/history-default/history-default.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'training',
     component: TrainingComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'history',
+    component: HistoryDefaultComponent,
     canActivate: [AuthGuard],
   },
   {

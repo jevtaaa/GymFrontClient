@@ -1,0 +1,11 @@
+<div class="spinner-div" *ngIf="session.historySpinnerFlag && authService.loggedClient.history.length != 0">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="columns is-multiline" *ngIf="!session.historySpinnerFlag && authService.loggedClient.history.length != 0">
+    <div class="column is-3" *ngFor="let hist of authService.loggedClient.history">
+      <app-history-item [history]="hist"></app-history-item>
+    </div>
+  </div>
+  <div class="column is-12" style="display: flex; flex-direction: column; align-items: center;" *ngIf="authService.loggedClient.history.length == 0">
+    <h1 style="color: black;">History is empty!</h1>
+  </div>

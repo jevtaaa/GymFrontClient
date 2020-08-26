@@ -28,6 +28,8 @@ import { TrainingComponent } from './training/training.component';
 import { TrainingExerciseComponent } from './training/training-exercise/training-exercise.component';
 import { TrainingExerciseItemComponent } from './training/training-exercise-item/training-exercise-item.component';
 import { TrainingArchiveComponent } from './training/training-archive/training-archive.component';
+import { HistoryDefaultComponent } from './history/history-default/history-default.component';
+import { HistoryItemComponent } from './history/history-item/history-item.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { TrainingArchiveComponent } from './training/training-archive/training-a
     TrainingComponent,
     TrainingExerciseComponent,
     TrainingExerciseItemComponent,
-    TrainingArchiveComponent
+    TrainingArchiveComponent,
+    HistoryDefaultComponent,
+    HistoryItemComponent
   ],
   imports: [
     BrowserModule,

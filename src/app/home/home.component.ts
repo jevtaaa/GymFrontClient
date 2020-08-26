@@ -5,6 +5,11 @@ import { CoachService } from '../coach/coach.service';
 import { TrainingService } from '../training/training.service';
 import { Coach } from '../models/coach.model';
 import { Training } from '../models/training.model';
+import { plainToClass } from 'class-transformer';
+import { map } from 'rxjs/operators';
+import { Exercise } from '../models/exercise.model';
+import { ClientService } from '../client/client.service';
+import { History } from 'src/app/models/history.model';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +22,8 @@ export class HomeComponent implements OnInit {
     public authServ: AuthService,
     public session: SessionService,
     public coachService: CoachService,
-    public trainingService: TrainingService
+    public trainingService: TrainingService,
+    public clientService: ClientService
   ) { }
 
   ngOnInit(): void {
@@ -43,6 +49,49 @@ export class HomeComponent implements OnInit {
         console.log(this.authServ.loggedClient.getTraining());
         this.session.homeSpinnerFlag = false;
       }
+      this.session.historySpinnerFlag = true;
+      this.clientService.getHistory()
+      .pipe(map((his => {
+        const historyList: History[] = [];
+        for(const key in his){
+          if(his.hasOwnProperty(key)) {
+            const hist = plainToClass(History, his[key]);
+            if(his[key].training_id){  
+              const training = new Training(his[key].training_id);
+              hist.setTraining(training); 
+            }
+            historyList.push(hist);
+          }
+        }
+        
+        return historyList;
+      })))
+      .subscribe(res => {
+        this.authServ.loggedClient.history = res;
+        this.session.historySpinnerFlag = false;
+        this.authServ.loggedClient.history.forEach(histo => {
+          this.trainingService.getTrainingById(histo.getTraining().getId())
+          .subscribe((training: any) => {
+            const train = plainToClass(Training, training);
+  
+            this.trainingService.getTrainingDetails(train.getId())
+                .pipe(map((response1 => {
+                  const exerciseTraining: Exercise[] = [];
+                  for(const key in response1){
+                    if(response1.hasOwnProperty(key)) {
+                      const exercise = plainToClass(Exercise, response1[key]);
+                      exerciseTraining.push(exercise);
+                    }
+                  }
+                  return exerciseTraining;
+                }))).subscribe(response2 => {
+                  train.setExercises(response2);
+                })
+            histo.setTraining(train);
+          })
+        })
+        console.log(this.authServ.loggedClient.history);
+      })
     })
   }
 

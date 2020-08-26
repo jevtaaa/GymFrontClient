@@ -43,6 +43,7 @@ export class TrainingArchiveComponent implements OnInit {
     .subscribe(data => {
       console.log(data);
       this.session.dialogSpinnerFlag = false;
+      this.session.successSnackBar("Added to history!");
       this.dialogRef.close();
     })
   }

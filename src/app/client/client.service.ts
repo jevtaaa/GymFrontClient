@@ -34,4 +34,15 @@ export class ClientService {
         };
         return this.http.put(this.session.ngrok+'/clients/edit',httpBody, httpOptions);
       }
+
+      getHistory() {
+        if(this.authServ.token === undefined || this.authServ.token === null){
+            this.router.navigateByUrl('/login');
+        }
+        const httpOptions = {
+            headers: new HttpHeaders({
+            Authorization: this.authServ.token,
+        })};
+        return this.http.get(this.session.ngrok+'/history', httpOptions);
+    }
 }
