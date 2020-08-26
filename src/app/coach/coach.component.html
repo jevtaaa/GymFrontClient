@@ -1,0 +1,38 @@
+<div class="columns is-centered">
+    <div class="column is-6">
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title> Coach: {{ coach.getUsername().trim() }}</mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+              <div style = "padding-left: 5%; padding-top: 5%;">
+                <div style = "padding-right: 5%;">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input matInput value="{{ coach.getName().trim() }}"  [disabled]="true">
+                </mat-form-field>
+                </div>
+                <div style = "padding-right: 5%;">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Surname</mat-label>
+                    <input matInput value="{{ coach.getSurname().trim() }}"  [disabled]="true">
+                </mat-form-field>
+                </div>
+                <div style = "padding-right: 5%;">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput value="{{ coach.getEmail().trim() }}"  [disabled]="true">
+                  </mat-form-field>
+                </div>
+                <div style = "padding-right: 5%;">
+                  <mat-form-field class="input-full-width">
+                    <mat-label>Biography</mat-label>
+                    <textarea cdkTextareaAutosize matInput value="{{ coach.getBio().trim() }}"  [disabled]="true" ></textarea>
+                </mat-form-field>
+                </div>
+                </div>
+            </mat-card-content>
+          </mat-card>
+    </div>
+</div>

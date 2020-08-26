@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title> <h1> {{ exercise.getName() }} </h1></mat-card-title>
+      <mat-card-subtitle
+        >{{ exercise.getDescription() }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content *ngIf="exercise.getReps()!=undefined && exercise.getSeries()!=undefined">
+        <h1 style="color: orange;">    
+        Series: {{ exercise.getSeries() }}<br>
+        Repetitions: {{ exercise.getReps() }}  
+        </h1>
+    </mat-card-content>
+</mat-card>

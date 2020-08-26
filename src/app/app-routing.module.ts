@@ -4,6 +4,8 @@ import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ClientComponent } from './client/client.component';
+import { CoachComponent } from './coach/coach.component';
+import { TrainingComponent } from './training/training.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,16 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ClientComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'coach',
+    component: CoachComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'training',
+    component: TrainingComponent,
     canActivate: [AuthGuard],
   },
   {

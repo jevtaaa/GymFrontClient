@@ -50,10 +50,10 @@ export class AuthComponent implements OnInit {
       }
       client.setCoach(coach);
       this.authServ.loggedClient = client;
-      this.session.loginSpinnerFlag = false;
       console.log("ULOGOVAN");
       console.log(this.authServ.loggedClient);
       this.router.navigateByUrl('/home');
+      this.session.loginSpinnerFlag = false;
     }, (err) => {
       if(err.status === 404) {
         this.session.loginSpinnerFlag = false;

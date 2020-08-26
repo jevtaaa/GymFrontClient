@@ -23,6 +23,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home.component';
 import { ClientComponent } from './client/client.component';
 import { ClientEditComponent } from './client/client-edit/client-edit.component';
+import { CoachComponent } from './coach/coach.component';
+import { TrainingComponent } from './training/training.component';
+import { TrainingExerciseComponent } from './training/training-exercise/training-exercise.component';
+import { TrainingExerciseItemComponent } from './training/training-exercise-item/training-exercise-item.component';
+import { TrainingArchiveComponent } from './training/training-archive/training-archive.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { ClientEditComponent } from './client/client-edit/client-edit.component'
     AuthComponent,
     HomeComponent,
     ClientComponent,
-    ClientEditComponent
+    ClientEditComponent,
+    CoachComponent,
+    TrainingComponent,
+    TrainingExerciseComponent,
+    TrainingExerciseItemComponent,
+    TrainingArchiveComponent
   ],
   imports: [
     BrowserModule,

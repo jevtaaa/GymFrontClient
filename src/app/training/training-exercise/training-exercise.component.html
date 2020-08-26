@@ -1,0 +1,15 @@
+<mat-dialog-content>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ data.training.getName() }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="columns is-multiline">
+          <div class="column is-12" *ngFor="let ex of exercises">
+            <app-training-exercise-item [exercise]="ex"></app-training-exercise-item>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-card-content>
+    </mat-card>
+</mat-dialog-content>
