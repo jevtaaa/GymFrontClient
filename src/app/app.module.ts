@@ -21,12 +21,16 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HomeComponent } from './home/home.component';
+import { ClientComponent } from './client/client.component';
+import { ClientEditComponent } from './client/client-edit/client-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    HomeComponent
+    HomeComponent,
+    ClientComponent,
+    ClientEditComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,54 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Editing a client!</mat-card-title>
+    </mat-card-header>
+    <div class="spinner-div" *ngIf="session.bottomSheetSpinnerFlag">
+      <mat-spinner></mat-spinner>
+    </div>
+    <mat-card-content *ngIf="!session.bottomSheetSpinnerFlag">
+      <form [formGroup]="editClientForm">
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="Username" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="string" formControlName="Name" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Surname</mat-label>
+            <input matInput type="string" formControlName="Surname" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="Email" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Biography</mat-label>
+            <textarea cdkTextareaAutosize matInput formControlName="Biography"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Height</mat-label>
+            <input matInput formControlName="Height" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Weight</mat-label>
+            <input matInput formControlName="Weight" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="Password" />
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" [disabled]="!editClientForm.valid" (click)="editClient()">
+        <mat-icon>save</mat-icon>
+        Save
+      </button>
+      <button mat-button color="warn" (click)="close()">
+        <mat-icon>not_interested</mat-icon>
+        Quit
+      </button>
+    </mat-card-actions>
+  </mat-card>

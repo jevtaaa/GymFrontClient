@@ -57,7 +57,7 @@ export class AuthComponent implements OnInit {
     }, (err) => {
       if(err.status === 404) {
         this.session.loginSpinnerFlag = false;
-        console.log("Wrong username or password!")
+        this.session.successSnackBar("Wrong username or password!");
       }
     });
   }

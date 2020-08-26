@@ -3,7 +3,7 @@ import { History } from './history.model';
 import { Coach } from './coach.model';
 
 export class Client {
-    constructor(private client_id: number, private username: string,private name: string, private surname: string, 
+    constructor(private client_id: number, private username: string,private name: string, private surname: string, private password: string,
         private email: string, private bio: string, private height: number, private weight: number, private coach: Coach, private training?: Training, public history: History[] = null) {}
 
     getId() {
@@ -36,6 +36,9 @@ export class Client {
     getCoach() {
         return this.coach;
     }
+    getPassword() {
+        return this.password;
+    }
 
     setId(id: number) {
         this.client_id = id;
@@ -66,5 +69,8 @@ export class Client {
     }
     setCoach(coach: Coach) {
         this.coach = coach;
+    }
+    setPassword(password: string) {
+        this.password = password;
     }
 }

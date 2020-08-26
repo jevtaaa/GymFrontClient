@@ -18,7 +18,7 @@
     <mat-sidenav position="start" [(opened)]="menuOpened" mode="push">
       <hr />
       <button
-        [routerLink]=""
+        [routerLink]="['/home']"
         routerLinkActive="router-link-active"
         (click)="toggleSideMenu()"
         mat-button
@@ -54,7 +54,7 @@
         Coach
       </button>
       <button
-        [routerLink]=""
+        [routerLink]="['/profile']"
         routerLinkActive="router-link-active"
         (click)="toggleSideMenu()"
         mat-button

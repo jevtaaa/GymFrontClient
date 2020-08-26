@@ -1,0 +1,61 @@
+<div class="columns is-centered">
+    <div class="column is-6">
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title> Profile of: {{ authServ.loggedClient.getUsername().trim() }}</mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            
+            <mat-card-content>
+                
+              <div style = "padding-left: 5%; padding-top: 5%;">
+                <div style = "padding-right: 5%;">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Name</mat-label>
+                    <input matInput value="{{ authServ.loggedClient.getName().trim() }}"  [disabled]="true">
+                </mat-form-field>
+                </div>
+                <div style = "padding-right: 5%;">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Surname</mat-label>
+                    <input matInput value="{{ authServ.loggedClient.getSurname().trim() }}"  [disabled]="true">
+                </mat-form-field>
+                </div>
+                <div style = "padding-right: 5%;">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput value="{{ authServ.loggedClient.getEmail().trim() }}"  [disabled]="true">
+                  </mat-form-field>
+                </div>
+                <div style = "padding-right: 5%;">
+                  <mat-form-field class="input-full-width">
+                    <mat-label>Biography</mat-label>
+                    <textarea cdkTextareaAutosize matInput value="{{ authServ.loggedClient.getBio().trim() }}"  [disabled]="true" ></textarea>
+                </mat-form-field>
+                </div>
+                <div style = "padding-right: 5%;">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Height</mat-label>
+                      <input matInput value="{{ authServ.loggedClient.getHeight() }} cm"  [disabled]="true">
+                    </mat-form-field>
+                  </div>
+                  <div style = "padding-right: 5%;">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Weight</mat-label>
+                      <input matInput value="{{ authServ.loggedClient.getWeight() }} kg"  [disabled]="true">
+                    </mat-form-field>
+                  </div>
+                </div>
+            
+            </mat-card-content>
+            <button
+            mat-button
+            color="primary"
+            id="editButton"
+            (click)="openEditBottomSheet()"
+  >
+    <mat-icon>edit</mat-icon>
+  </button>
+          </mat-card>
+    </div>
+</div>
